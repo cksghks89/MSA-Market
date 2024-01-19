@@ -39,7 +39,7 @@ spring:
                 preLogger: true
                 postLogger: true
 
-        # Login 유저 서비스
+        # [USER-SERVICE] POST 방식 /login 서비스
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -49,7 +49,7 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
 
-        # POST 방식 유저 서비스
+        # [USER-SERVICE] POST 방식 /users 서비스
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -59,7 +59,17 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
 
-        # GET 방식 유저 서비스
+        # [USER-SERVICE] POST 방식 /** 서비스
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user-service/**
+            - Method=POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+
+        # [USER-SERVICE] GET 방식 /** 서비스
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
