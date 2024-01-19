@@ -21,6 +21,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
                         .anyRequest().permitAll()
                 )
         ;
