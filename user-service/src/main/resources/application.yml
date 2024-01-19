@@ -33,6 +33,8 @@ eureka:
 greeting:
   message: Welcome to the User Service!
 
-token:
-  expiration_time: 86400000
-  secret: userToken
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health, beans
