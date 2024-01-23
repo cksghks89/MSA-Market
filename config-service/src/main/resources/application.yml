@@ -8,4 +8,8 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/songchanhwan/Documents/dev/project/config-service
+          uri: https://github.com/cksghks89/MSA-Market
+          default-label: develop
+          search-paths: config-files
+#          username: [ username ]    # private Repository 의 경우 username, password 기입
+#          passphrase: [ password ]
