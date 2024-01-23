@@ -11,6 +11,14 @@ eureka:
 spring:
   application:
     name: apigateway-service
+
+  # RabbitMQ 설정을 위한 설정 정보 추가
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
   cloud:
     gateway:
       default-filters:
@@ -100,4 +108,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, beans, refresh, httpexchanges
+        include: health, beans, refresh, httpexchanges, busrefresh
