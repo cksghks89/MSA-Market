@@ -58,6 +58,9 @@ dependencies {
 
     // SpringBoot Actuator 의존성 추가
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Spring cloud bus-amqp 의존성 추가
+    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 }
 
 dependencyManagement {
