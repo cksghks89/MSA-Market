@@ -21,7 +21,14 @@ ext {
 
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-config-server'
+    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // SpringBoot Actuator 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Spring cloud bus-amqp 의존성 추가
+    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
 }
 
 dependencyManagement {
