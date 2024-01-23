@@ -4,6 +4,14 @@ server:
 spring:
   application:
     name: config-service
+
+  # RabbitMQ 설정을 위한 설정 정보 추가
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
   profiles:
     active: native
   cloud:
@@ -17,3 +25,9 @@ spring:
           search-paths: config-files
 #          username: [ username ]    # private Repository 의 경우 username, password 기입
 #          passphrase: [ password ]
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh
