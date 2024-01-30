@@ -1,3 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:h2:~/user-service
+    username: '{cipher}AQAwYeXhARRjd2s3G+sXyC4tyQazKztG95kFDooR5Y2xR/QYAg9JQ2Fsyzn1C6SvIWlBWxT8AMCija/zM9rM0qxMkOCjp88ZQRN3Zzazxu7zyHPqwrgBgEX4JHflCW/4Zk9cA5yO/3POhXrMf1ZSXOCWb5LkPZp/gqcHujq1Fx85ELULxRE7IUWVNWyn8it6Nm9m4G1NIt1tYTpeMotkAQ+O+P14AvxgJKTv+CgtwVTDiTT6is/He1TNIcAdfu9nVomLiW98FI6DlqRu2x+JS8VevrVt19IhgWXzFrGpZrt4fFOjUzozVNqxPDGasvthXu0Cj1iy5UYlduoFEu3fer1UrNwNpB9nXry2k/8Mw/KrYucqRtd7SE7I7WSSVS5iPNY='
+    password:
+    driver-class-name: org.h2.Driver
+    
 token:
   expiration_time: 8640000000
   secret: '{cipher}AQCeTvITcS1BG58zmB1F5T1HfO8T1y0tX8xIddpCh5YlrZaNI980Q6x8kRCbHJD9FAtsqMPyK4BX9Go7vFCnhDxcr11O2+Q/ke4RsNzd60F8eMARmeWs0Cnrp6pdqUDBv8GSae0WbfgCS2E4YhlJ3QGNM0+0RGi5TrY+wRkMsz3piNikZhCySsTqPRcN1jhUntADOkFs4xTpgUmTp8CUeQvqTdxkIfpdug2cZntJQOFqum8W//iS9lzkkfDMyEw4hIIRe/cuVP1BKIH197Tjvzy4knUVe3Tqv7p4zywqU09yNRvoo+A3a2aHqrfCHeW/WMB1szYWsZcYfmS4cGqqb2BqY0vnz3eVeGLtP/kzZoEGp/bn44+Sd87Tvjj94p19OBCp0M2MqGhLixhp55/J+qDFgvnI0R0u77GWIX/+pJEGV3szMhIRDEjILFQ1kRmbfgQeXFiaop8dVEhHJBqMIx0LibW20HeqqEbYueZw0Wpysw=='
