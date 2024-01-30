@@ -1,5 +1,4 @@
 encrypt:
-#  key: abcdefghijklmnopqrstuvwxyz0123456789
   key-store:
     location: file:///Users/songchanhwan/Documents/dev/project/keystore/apiEncryptionKey.jks
     password: test1234
