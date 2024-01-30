@@ -4,6 +4,7 @@ import com.example.apigatewayservice.utils.JwtTokenUtils;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHeaders;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,12 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<AuthorizationHeaderFilter.Config> {
 
-    public AuthorizationHeaderFilter() {
+    private final JwtTokenUtils jwtTokenUtils;
+
+    @Autowired
+    public AuthorizationHeaderFilter(JwtTokenUtils jwtTokenUtils) {
         super(Config.class);
+        this.jwtTokenUtils = jwtTokenUtils;
     }
 
     @Data
@@ -40,7 +45,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
             String authorizationHeader = request.getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
             String jwt = authorizationHeader.replace("Bearer", "");
 
-            if (!JwtTokenUtils.isValidToken(jwt)) {
+            if (!jwtTokenUtils.isValidToken(jwt)) {
                 return onError(exchange, "JWT token is not valid", HttpStatus.UNAUTHORIZED);
             }
 

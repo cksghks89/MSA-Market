@@ -33,6 +33,7 @@ public class UserController {
     private final UserService userService;
     private final Environment env;
     private final AuthenticationManager authenticationManager;
+    private final JwtTokenUtils jwtTokenUtils;
 
     @GetMapping("/health_check")
     public String status() {
@@ -96,7 +97,7 @@ public class UserController {
                     .email(requestLogin.getEmail())
                     .build();
 
-            String token = JwtTokenUtils.generateJwtToken(userDto);
+            String token = jwtTokenUtils.generateJwtToken(userDto);
 
             response.setHeader("token", token);
             response.setHeader("userId", authenticate.getPrincipal().toString());
