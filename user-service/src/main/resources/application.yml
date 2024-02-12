@@ -41,6 +41,10 @@ eureka:
 greeting:
   message: Welcome to the User Service!
 
+logging:
+  level:
+    com.example.userservice.client: DEBUG
+
 management:
   endpoints:
     web:
