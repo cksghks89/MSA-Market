@@ -3,6 +3,7 @@ package com.example.orderservice.dto;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 public class OrderDto implements Serializable {
@@ -14,5 +15,7 @@ public class OrderDto implements Serializable {
 
     private String orderId;
     private String userId;
+
+    private Date createdAt;
 
 }
