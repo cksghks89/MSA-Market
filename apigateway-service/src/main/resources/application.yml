@@ -88,7 +88,7 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
 
-        # 카탈로그 마이크로 서비스
+        # [Catalog-Service] 카탈로그 마이크로 서비스
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
@@ -96,7 +96,7 @@ spring:
           filters:
             - StripPrefix=1
 
-        # 주문 마이크로 서비스
+        # [Order-service] 주문 마이크로 서비스
         - id: order-service
           uri: lb://ORDER-SERVICE
           predicates:
