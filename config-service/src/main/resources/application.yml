@@ -18,7 +18,7 @@ spring:
     config:
       server:
         native:
-          search-locations: file:///Users/songchanhwan/Documents/dev/project/native-config-repo
+          search-locations: file:///Users/songchanhwan/Documents/dev/project/MSA-Market/config-files
         git:
           uri: https://github.com/cksghks89/MSA-Market
           default-label: develop
