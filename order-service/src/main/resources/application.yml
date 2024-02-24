@@ -6,9 +6,9 @@ spring:
   application:
     name: order-service
   datasource:
-    url: jdbc:mysql://localhost:3306/orderdb
-    username: order
-    password: order
+    url: jdbc:mysql://localhost:3306/mydb
+    username: test
+    password: test1234
     driver-class-name: com.mysql.cj.jdbc.Driver
 #  h2:
 #    console:
