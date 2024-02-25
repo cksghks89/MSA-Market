@@ -104,8 +104,19 @@ spring:
           filters:
             - StripPrefix=1
 
+        # [Order-service] actuator API
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order-service/actuator/**
+            - Method=GET, POST
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/order-service/(?<segment>.*), /$\{segment}
+
+
 management:
   endpoints:
     web:
       exposure:
-        include: health, beans, refresh, httpexchanges, busrefresh
+        include: health, beans, refresh, httpexchanges, busrefresh, info, metrics, prometheus
