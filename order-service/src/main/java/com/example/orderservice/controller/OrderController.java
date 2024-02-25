@@ -36,6 +36,7 @@ public class OrderController {
     @PostMapping("/{userId}/orders")
     public ResponseEntity<RequestOrder> createOrder(@PathVariable("userId") String userId,
                                                     @RequestBody RequestOrder orderDetails) {
+        log.info("Before add orders data");
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(org.modelmapper.convention.MatchingStrategies.STRICT);
 
@@ -54,16 +55,19 @@ public class OrderController {
 //        kafkaProducer.send("example-catalog-topic", orderDto);
 //        orderProducer.send("my_topic_orders", orderDto);
 
+        log.info("After added orders data");
         return ResponseEntity.status(HttpStatus.CREATED).body(responseOrder);
     }
 
     @GetMapping("/{userId}/orders")
     public ResponseEntity<List<ResponseOrder>> getOrder(@PathVariable("userId") String userId) {
+        log.info("Before retrieve orders data");
         Iterable<OrderEntity> orderList = orderService.getOrdersByUserId(userId);
 
         List<ResponseOrder> result = new ArrayList<>();
         orderList.forEach(v -> result.add(new ModelMapper().map(v, ResponseOrder.class)));
 
+        log.info("After retrieve orders data");
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
