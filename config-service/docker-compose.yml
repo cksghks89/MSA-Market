@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  config-service:
+    image: cksghks89/config-service:1.0
+    container_name: config-service
+    ports:
+      - "8888:8888"
+    environment:
+      - "spring.rabbitmq.host=rabbitmq"
+      - "spring.profiles.active=default"
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    external: true
