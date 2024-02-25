@@ -1,5 +1,9 @@
 encrypt:
   key-store:
-    location: file:///Users/songchanhwan/Documents/dev/project/keystore/apiEncryptionKey.jks
+    # Local 경로로 설정 (개발시)
+#    location: file:///Users/songchanhwan/Documents/dev/project/keystore/apiEncryptionKey.jks
+
+    # Docker container 내의 경로로 설정 (컨테이너 배포 시)
+    location: file:/apiEncryptionKey.jks
     password: test1234
     alias: apiEncryptionKey
