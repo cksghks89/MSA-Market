@@ -46,6 +46,9 @@ dependencies {
 
     // Spring cloud bus-amqp 의존성 추가
     implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+
+    // 모니터링을 위한 micrometer-registry-prometheus 의존성 추가
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 }
 
 dependencyManagement {

@@ -67,6 +67,19 @@ dependencies {
 
     // resilience4j circuitbreaker 의존성 추가
     implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
+
+    // zipkin, sleuth - spring boot3 지원 중단 -> micrometer 흡수
+//    implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+
+    // zipkin + micrometer 의존성 추가 -> 분산 추적 시스템 (spring actuator 도 추가해야 한다 - 상단에 추가하였으므로 생략)
+    implementation 'io.micrometer:micrometer-observation'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
+    implementation 'io.github.openfeign:feign-micrometer'
+
+    // 모니터링을 위한 micrometer-registry-prometheus 의존성 추가
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 }
 
 dependencyManagement {

@@ -45,6 +45,21 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
     implementation 'org.springframework.kafka:spring-kafka'
+
+    // SpringBoot Actuator 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Spring cloud bus-amqp 의존성 추가
+    implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+
+    // zipkin + micrometer 의존성 추가 -> 분산 추적 시스템 (spring actuator 도 추가해야 한다 - 상단에 추가하였으므로 생략)
+    implementation 'io.micrometer:micrometer-observation'
+    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
+    implementation 'io.github.openfeign:feign-micrometer'
+
+    // 모니터링을 위한 micrometer-registry-prometheus 의존성 추가
+    implementation 'io.micrometer:micrometer-registry-prometheus'
 }
 
 dependencyManagement {
