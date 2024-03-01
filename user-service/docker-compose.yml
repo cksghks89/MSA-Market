@@ -12,24 +12,7 @@ services:
       - "logging.file=/api-logs/users-ws.log"
     networks:
       - ecommerce-network
-version: "3.7"
 
-services:
-  user-service:
-    image: cksghks89/user-service:1.0
-    container_name: user-service
-    environment:
-      - "spring.cloud.config.uri=http://config-service:8888"
-      - "spring.rabbitmq.host=rabbitmq"
-      - "management.zipkin.tracing.endpoint=http://zipkin:9411/api/v2/spans"
-      - "eureka.client.service-url.defaultZone=http://service-discovery:8761/eureka/"
-      - "logging.file=/api-logs/users-ws.log"
-    networks:
-      - ecommerce-network
-
-networks:
-  ecommerce-network:
-    external: true
 networks:
   ecommerce-network:
     external: true
