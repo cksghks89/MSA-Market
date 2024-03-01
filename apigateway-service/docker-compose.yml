@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  apigateway-service:
+    image: cksghks89/apigateway-service:1.0
+    container_name: apigateway-service
+    ports:
+      - "8000:8000"
+    environment:
+      - "spring.cloud.config.uri=http://config-service:8888"
+      - "spring.rabbitmq.host=rabbitmq"
+      - "eureka.client.serviceUrl.defaultZone=http://service-discovery:8761/eureka/"
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    external: true
