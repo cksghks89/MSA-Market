@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:management"
+    container_name: "rabbitmq"
+    ports:
+      - "5672:5672"
+      - "5671:5671"
+      - "15672:15672"
+      - "15671:15671"
+      - "4369:4369"
+    enviromnent:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    external: true
